@@ -1,5 +1,6 @@
 package com.nishasoni.Rest_Demo.service;
 
+import com.nishasoni.Rest_Demo.exception.VenderNotFoundException;
 import com.nishasoni.Rest_Demo.model.Vender;
 import com.nishasoni.Rest_Demo.repository.VenderRepository;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,8 @@ public class VenderServiceImpl implements VenderService{
 
     @Override
     public Vender getVender(String venderId) {
+        if (repository.findById(venderId).isEmpty())
+            throw new VenderNotFoundException("RFequested Vender Not Found");
         return repository.findById(venderId).get();
     }
 
