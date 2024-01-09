@@ -1,7 +1,10 @@
 package com.nishasoni.Rest_Demo.controller;
 
 import com.nishasoni.Rest_Demo.model.Vender;
+import com.nishasoni.Rest_Demo.response.ResponseHandler;
 import com.nishasoni.Rest_Demo.service.VenderService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +21,11 @@ public class VenderController {
 
     //GET
     @GetMapping("{venderId}")
-    public Vender getVendorDetails(@PathVariable("venderId") String venderId){
+    public ResponseEntity<Object> getVendorDetails(@PathVariable("venderId") String venderId){
 
       //  return new Vender("C1","vender 1","Address One","xxxxx");
-   return service.getVender(venderId);
+        return ResponseHandler.responseBuilder("Requested Vender are given here", HttpStatus.OK, service.getVender(venderId));
+
     }
 
     @GetMapping("")
