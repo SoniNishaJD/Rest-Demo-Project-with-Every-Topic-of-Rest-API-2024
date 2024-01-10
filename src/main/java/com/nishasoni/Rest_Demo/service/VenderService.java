@@ -10,4 +10,6 @@ public interface VenderService {
     public String deleteVender(String venderId);
     public Vender getVender(String venderId);
     public List<Vender> getAllVenders();
+
+
 }
