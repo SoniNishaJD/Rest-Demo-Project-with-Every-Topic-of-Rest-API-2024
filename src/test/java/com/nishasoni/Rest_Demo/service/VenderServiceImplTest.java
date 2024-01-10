@@ -1,4 +1,4 @@
-package com.nishasoni.Rest_Demo;
+package com.nishasoni.Rest_Demo.service;
 
 import com.nishasoni.Rest_Demo.model.Vender;
 import com.nishasoni.Rest_Demo.repository.VenderRepository;
